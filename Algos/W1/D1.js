@@ -44,8 +44,10 @@ class SinglyLinkedList {
 
     /**
      * Determines if this list is empty.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(1) - Whether the SLL has 0, 2, or 92838497 nodes, it still takes the
+     *      same amount of time.
+     * - Space: O(1) - Constant, because A) there are no variables, and B) that 
+     *      doesn't change no matter how big the list is.
      * @returns {boolean}
      */
     isEmpty() {
@@ -63,8 +65,10 @@ class SinglyLinkedList {
     /**
      * Creates a new node with the given data and inserts it at the back of
      * this list.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(n) - Because we need to step through the list, the longer
+     *      the list, the longer it takes to complete (but linearly).
+     * - Space: O(1) - Constant, because the size of the list doesn't impact
+     *      how many new variables/data structures we use.
      * @param {any} data The data to be added to the new node.
      * @returns {SinglyLinkedList} This list.
      */
@@ -119,8 +123,9 @@ class SinglyLinkedList {
 
     /**
      * Converts this list into an array containing the data of each node.
-     * - Time: O(n) linear.
-     * - Space: O(n).
+     * - Time: O(n) - Linear, because it's just running through the list once.
+     * - Space: O(n) - The array created has a size directly proportional to the size
+     *      of the original list.
      * @returns {Array<any>} An array of each node's data.
      */
     toArr() {

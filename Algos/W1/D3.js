@@ -83,8 +83,9 @@ class SinglyLinkedList {
 
     /**
      * Removes the last node of this list.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(n) - Linear, because we step through each node once to get to the end.
+     * - Space: O(1) - Constant, because we're not increasing the amount of items
+     *      stored in memory if the list is larger.
      * @returns {any} The data from the node that was removed.
      */
     removeBack() {
@@ -141,8 +142,9 @@ class SinglyLinkedList {
 
     /**
      * Determines whether or not the given search value exists in this list.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(n) - Linear, because if we have 10 items, we potentially need to
+     *      check all 10 before finding (or not finding) our value.
+     * - Space: O(1) - Constant, because it's just runner.
      * @param {any} val The data to search for in the nodes of this list.
      * @returns {boolean}
      */
@@ -166,8 +168,12 @@ class SinglyLinkedList {
 
     /**
      * Determines whether or not the given search value exists in this list.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(n) - Linear, because we make the recursive call once per element.
+     * - Space: O(n) - Linear. This one is tricky, and it has to do with how recursion
+     *      works. Yes, the only "variable" is the "current" parameter. BUT, each recursive
+     *      call adds to the call stack, and each layer of the call stack has its OWN scope,
+     *      so each recursive call (one per node) gets its own val and current, meaning
+     *      the bigger the list, the more memory used.
      * @param {any} val The data to search for in the nodes of this list.
      * @param {?node} current The current node during the traversal of this list
      *    or null when the end of the list has been reached.
@@ -202,8 +208,8 @@ class SinglyLinkedList {
     // EXTRA
     /**
      * Recursively finds the maximum integer data of the nodes in this list.
-     * - Time: O(?).
-     * - Space: O(?).
+     * - Time: O(n) - Linear, because we ultimately check each node only once.
+     * - Space: O(n) - Same deal as the above. Recursion messes with space complexity.
      * @param {Node} runner The start or current node during traversal, or null
      *    when the end of the list is reached.
      * @param {Node} maxNode Keeps track of the node that contains the current

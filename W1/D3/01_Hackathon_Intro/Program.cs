@@ -6,6 +6,12 @@ namespace _01_Hackathon_Intro
     {
         static void Main(string[] args)
         {
+            SampleClass something = new SampleClass();
+            something.FirstName = "Bill";
+
+            System.Console.WriteLine(something.FirstName);
+
+
             bool isRunning = true;
 
             while(isRunning)
