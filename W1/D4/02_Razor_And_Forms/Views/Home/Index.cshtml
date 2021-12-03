@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>I digress</h1>
+    @{
+        int solution = ViewBag.x / ViewBag.y;
+    }
+    <p>My name is @ViewBag.MyName, and I like @ViewBag.FavoriteVegetable</p>
+    <p>The Solution is: @solution</p>
+
+    <p>The names I see first on Zoom are:</p>
+    <ul>
+        @{
+            foreach(string something in ViewBag.ListOfNames)
+            {
+                if(something.Length > 5)
+                {
+                    <li style="color: blue;">@something</li>
+                }
+                else 
+                {
+                    <li style="color: green;">@something</li>
+                }
+            }
+        }
+    </ul>
+</body>
+</html>
