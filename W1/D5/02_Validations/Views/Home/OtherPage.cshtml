@@ -1,3 +1,4 @@
+@model _02_Validations.Models.Duck
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/some/page" method="POST">
+    <form asp-action="NewDuck">
         <div>
-            <label for="DuckName">Name: </label>
-            <input type="text" name="DuckName" id="DuckName">
+            <span asp-validation-for="DuckName"></span>
+            <label asp-for="DuckName"></label>
+            <input asp-for="DuckName">
         </div>
         <div>
-            <label for="Quackifications">Quackifications: </label>
-            <select name="Quackifications" id="Quackifications">
+            <span asp-validation-for="Quackifications"></span>
+            <label asp-for="Quackifications"></label>
+            <select asp-for="Quackifications">
                 <option value="quacksociates">Quacksociates</option>
                 <option value="quackelors">Quackelors</option>
                 <option value="quacksters">Quacksters</option>
@@ -22,8 +25,9 @@
             </select>
         </div>
         <div>
-            <label for="BillLength">Bill Length: </label>
-            <input type="number" name="BillLength" id="BillLength">
+            <span asp-validation-for="BillLength"></span>
+            <label asp-for="BillLength"></label>
+            <input asp-for="BillLength">
         </div>
 
         <input type="submit" value="Debug With Your Duck!">

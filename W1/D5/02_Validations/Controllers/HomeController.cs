@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using _01_Models_Intro.Models;
+using _02_Validations.Models;
 
-namespace _01_Models_Intro.Controllers
+namespace _02_Validations.Controllers
 {
     public class HomeController : Controller 
     {
@@ -43,9 +43,15 @@ namespace _01_Models_Intro.Controllers
             // ViewBag.Quackifications = quackifications;
             // ViewBag.BillLength = billLength;
             // Duck duckToShow = new Duck(name, quackifications, billLength);
+            if(ModelState.IsValid)
+            {
+                return View(fromForm);
+            }
+            else 
+            {
+                return View("OtherPage");
+            }
 
-
-            return View(fromForm);
         }
     }
 }

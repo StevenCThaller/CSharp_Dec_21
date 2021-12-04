@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_01_Models_Intro</RootNamespace>
+    <RootNamespace>_02_Validations</RootNamespace>
   </PropertyGroup>
 
 </Project>

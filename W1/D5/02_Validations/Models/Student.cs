@@ -1,5 +1,5 @@
 
-namespace _01_Models_Intro.Models
+namespace _02_Validations.Models
 {
     public class Student 
     {
