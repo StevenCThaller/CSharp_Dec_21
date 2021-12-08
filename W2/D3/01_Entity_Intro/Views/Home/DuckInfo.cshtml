@@ -1,0 +1,19 @@
+@* declare the model for this view (aka the ViewModel) to be of type Duck *@
+@model _01_Entity_Intro.Models.Duck;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duckument</title>
+</head>
+<body>
+    <h1>Thank you for submitting your Duck!</h1>
+    <p>Name: @Model.DuckName</p>
+    <p>Quackifications: @Model.Quackifications Duckgree</p>
+    <p>Bill Length: @Model.BillLength centibeakers</p>
+    <a href="/duck/delete/@Model.DuckId">Delete My Duck</a>
+</body>
+</html>
