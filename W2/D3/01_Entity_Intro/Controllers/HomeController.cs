@@ -64,5 +64,40 @@ namespace _01_Entity_Intro.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet("duck/edit/{duckId}")]
+        public IActionResult EditDuck(int duckId)
+        {
+            Duck toEdit = _context.Ducks.FirstOrDefault(duck => duck.DuckId == duckId);
+
+            if(toEdit == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View("EditDuck", toEdit);
+        }
+
+        [HttpPost("duck/update/{duckId}")]
+        public IActionResult UpdateDuck(int duckId, Duck fromForm)
+        {
+            if(ModelState.IsValid)
+            {
+                Duck inDb = _context.Ducks.FirstOrDefault(duck => duck.DuckId == duckId);
+
+                inDb.DuckName = fromForm.DuckName;
+                inDb.Quackifications = fromForm.Quackifications;
+                inDb.BillLength = fromForm.BillLength;
+                inDb.UpdatedAt = DateTime.Now;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("DuckInfo", new { duckId = duckId });
+            }
+            else 
+            {
+                return EditDuck(duckId);
+            }
+        }
     }
 }

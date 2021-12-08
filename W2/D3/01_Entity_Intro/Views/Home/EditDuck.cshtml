@@ -1,0 +1,37 @@
+@model _01_Entity_Intro.Models.Duck
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duckument</title>
+</head>
+<body>
+    <h1>I hear you want to edit @Model.DuckName</h1>
+    <form asp-action="UpdateDuck">
+        <div>
+            <span asp-validation-for="DuckName"></span>
+            <label asp-for="DuckName"></label>
+            <input asp-for="DuckName">
+        </div>
+        <div>
+            <span asp-validation-for="Quackifications"></span>
+            <label asp-for="Quackifications"></label>
+            <select asp-for="Quackifications">
+                <option value="quacksociates">Quacksociates</option>
+                <option value="quackelors">Quackelors</option>
+                <option value="quacksters">Quacksters</option>
+                <option value="PHDuck">PHDuck</option>
+            </select>
+        </div>
+        <div>
+            <span asp-validation-for="BillLength"></span>
+            <label asp-for="BillLength"></label>
+            <input asp-for="BillLength">
+        </div>
+
+        <input type="submit" value="Update Your Duck!">
+    </form>
+</body>
+</html>
