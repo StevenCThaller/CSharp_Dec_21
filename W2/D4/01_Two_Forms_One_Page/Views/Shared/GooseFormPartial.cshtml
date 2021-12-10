@@ -1,0 +1,16 @@
+@model _01_Two_Forms_One_Page.Models.Goose;
+
+<form asp-action="NewGoose">
+    <div>
+        <span asp-validation-for="GooseName"></span>
+        <label asp-for="GooseName"></label>
+        <input asp-for="GooseName">
+    </div>
+    <div>
+        <span asp-validation-for="GooseFrabba"></span>
+        <label asp-for="GooseFrabba"></label>
+        <input asp-for="GooseFrabba">
+    </div>
+
+    <input type="submit" value="What a Silly Goose">
+</form>

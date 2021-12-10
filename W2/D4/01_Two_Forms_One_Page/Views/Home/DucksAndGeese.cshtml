@@ -1,0 +1,31 @@
+@using _01_Two_Forms_One_Page.Models;
+@model DucksAndGeeseView;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duckument</title>
+</head>
+<body>
+    <h1>Holy Honking Quacking Batman! It's Ducks AND Geese!!</h1>
+    @* I want two lists to render, each showing data from a different object. But only 1 object comes through? *@
+    <ul>
+        @foreach(Duck duck in Model.Ducks)
+        {
+            <li>@duck.DuckName</li>
+        }
+    </ul>
+
+    <p>And now the geese!</p>
+
+    <ul>
+        @foreach(Goose goose in Model.Geese)
+        {
+            <li>@goose.GooseName</li>
+        }
+    </ul>
+</body>
+</html>
