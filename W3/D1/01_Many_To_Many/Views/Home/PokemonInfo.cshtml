@@ -1,0 +1,27 @@
+@using _01_Many_To_Many.Models
+@model Pokemon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Info for @Model.Name</h1>
+    <p>Caught By: @Model.CaughtBy.Name</p>
+
+    <h2>Moves Learned By @Model.Name</h2>
+    <ul>
+        @* Loop through the Middle Table Navigation Property *@
+        @foreach(PokemonHasMove moveKnown in Model.MovesKnown)
+        {
+            @* But remember, moveKnown is NOT a move object. *@
+            @* It is a MIDDLE TABLE object (a PokemonHasMove) *@
+            @* PokemonHasMove has a navigation property we can use to GET TO the move itself *@
+            <li>@moveKnown.MoveKnownByPokemon.Name - @moveKnown.MoveKnownByPokemon.Description</li>
+        }
+    </ul>
+</body>
+</html>

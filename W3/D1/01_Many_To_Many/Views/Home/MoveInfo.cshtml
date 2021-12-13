@@ -1,0 +1,41 @@
+@using _01_Many_To_Many.Models;
+@model MoveInfoView;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @{
+        Move Display = Model.ToRender;
+        PokemonHasMove TeachForm = Model.TeachForm;
+        List<Pokemon> PokemonToTeachTo = Model.ToTeachTo;
+    }
+    <h1>Info for @Display.Name</h1>
+    <p>Description: @Display.Description</p>
+    <h3>Known By</h3>
+    <ul>
+        @foreach(PokemonHasMove pokemon in Display.PokemonThatLearnMove)
+        {
+            <li>@pokemon.PokemonWithMove.Name</li>
+        }
+    </ul>
+    <h4>Teach this Move to another Pokemon?</h4>
+    <form asp-action="TeachMove">
+        <div>
+            <label asp-for="TeachForm.PokemonId"></label>
+            <select asp-for="TeachForm.PokemonId">
+                @foreach(Pokemon pokemon in PokemonToTeachTo)
+                {
+                    <option value="@pokemon.PokemonId">@pokemon.Name</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" asp-for="TeachForm.MoveId" value="@Display.MoveId">
+        <input type="submit" value="Teach @Display.Name!">
+    </form>
+</body>
+</html>

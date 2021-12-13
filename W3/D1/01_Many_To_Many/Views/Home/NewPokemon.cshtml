@@ -1,0 +1,66 @@
+@using _01_Many_To_Many.Models;
+@model Pokemon;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Catch a new Pokemon</h1>
+    <form asp-action="CreatePokemon">
+        <div>
+            <span asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+        </div>
+        <div>
+            <span asp-validation-for="HP"></span>
+            <label asp-for="HP"></label>
+            <input asp-for="HP">
+        </div>
+        <div>
+            <span asp-validation-for="Attack"></span>
+            <label asp-for="Attack"></label>
+            <input asp-for="Attack">
+        </div>
+        <div>
+            <span asp-validation-for="Defense"></span>
+            <label asp-for="Defense"></label>
+            <input asp-for="Defense">
+        </div>
+        <div>
+            <span asp-validation-for="SpecialAttack"></span>
+            <label asp-for="SpecialAttack"></label>
+            <input asp-for="SpecialAttack">
+        </div>
+        <div>
+            <span asp-validation-for="SpecialDefense"></span>
+            <label asp-for="SpecialDefense"></label>
+            <input asp-for="SpecialDefense">
+        </div>
+        <div>
+            <span asp-validation-for="Speed"></span>
+            <label asp-for="Speed"></label>
+            <input asp-for="Speed">
+        </div>
+        <div>
+            <span asp-validation-for="TrainerId"></span>
+            <label asp-for="TrainerId"></label>
+            <select asp-for="TrainerId">
+                @foreach(Trainer trainer in Model.AvailableTrainers)
+                {
+                    <option value="@trainer.TrainerId">@trainer.Name</option>
+                }
+            </select>
+        </div>
+
+        <input type="submit" value="Catch 'em!">
+    </form>
+</body>
+
+</html>

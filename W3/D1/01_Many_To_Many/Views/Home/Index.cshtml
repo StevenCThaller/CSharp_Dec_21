@@ -1,0 +1,76 @@
+@using _01_Many_To_Many.Models;
+@model IndexView;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotta Catch em All</title>
+</head>
+<body>
+    <h2>All Trainers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Trainer Id</th>
+                <th>Trainer Name</th>
+                <th>Number of Badges</th>
+                <th>Pokemon Caught</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Trainer trainer in Model.AllTrainers)
+            {
+                <tr>
+                    <td>@trainer.TrainerId</td>
+                    <td>@trainer.Name</td>
+                    <td>@trainer.NumberOfBadges</td>
+                    <td>@trainer.PokemonCaught.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/trainer/new">Register a New Trainer</a>
+    <h2>All Pokemon</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Pokemon Id</th>
+                <th>Name</th>
+                <th>Caught By</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Pokemon mon in Model.AllPokemon)
+            {
+                <tr>
+                    <td>@mon.PokemonId</td>
+                    <td><a href="/pokemon/@mon.PokemonId">@mon.Name</a></td>
+                    <td>@mon.CaughtBy.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/pokemon/new">Catch a New Pokemon</a>
+    <h2>All Moves</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Move move in Model.AllMoves)
+            {
+                <tr>
+                    <td><a href="/move/@move.MoveId">@move.Name</a></td>
+                    <td>@move.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/move/new">Add a new Move to the Database</a>
+</body>
+</html>
