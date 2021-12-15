@@ -168,23 +168,23 @@ twoLevelTree.print();
  *      /  \    /  \    /  \   /  \
  *     4   12  18  24  31  44 66  90
  */
- const fullTree = new BinarySearchTree();
- fullTree.root = new Node(25);
- 
- // left sub-tree
- fullTree.root.left = new Node(15);
- fullTree.root.left.left = new Node(10);
- fullTree.root.left.right = new Node(22);
- fullTree.root.left.left.left = new Node(4);
- fullTree.root.left.left.right = new Node(12);
- fullTree.root.left.right.left = new Node(18);
- fullTree.root.left.right.right = new Node(24);
- 
- // right sub-tree
- fullTree.root.right = new Node(50);
- fullTree.root.right.left = new Node(35);
- fullTree.root.right.right = new Node(70);
- fullTree.root.right.left.left = new Node(31);
- fullTree.root.right.left.right = new Node(44);
- fullTree.root.right.right.left = new Node(66);
- fullTree.root.right.right.right = new Node(90);
+const fullTree = new BinarySearchTree();
+fullTree.root = new Node(25);
+
+// left sub-tree
+fullTree.root.left = new Node(15);
+fullTree.root.left.left = new Node(10);
+fullTree.root.left.right = new Node(22);
+fullTree.root.left.left.left = new Node(4);
+fullTree.root.left.left.right = new Node(12);
+fullTree.root.left.right.left = new Node(18);
+fullTree.root.left.right.right = new Node(24);
+
+// right sub-tree
+fullTree.root.right = new Node(50);
+fullTree.root.right.left = new Node(35);
+fullTree.root.right.right = new Node(70);
+fullTree.root.right.left.left = new Node(31);
+fullTree.root.right.left.right = new Node(44);
+fullTree.root.right.right.left = new Node(66);
+fullTree.root.right.right.right = new Node(90);
