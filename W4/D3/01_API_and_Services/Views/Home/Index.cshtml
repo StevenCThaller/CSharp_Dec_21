@@ -1,0 +1,30 @@
+@model APISearch
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form asp-action="CallApiForItemAndFavorite">
+        <div>
+            <label asp-for="Category"></label>
+            <select asp-for="Category">
+                @foreach(string cat in Model.AvailableCategories)
+                {
+                    <option value="@cat">@cat</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label asp-for="SearchId"></label>
+            <input asp-for="SearchId">
+        </div>
+        <div>
+            <input type="submit" value="Search Away">
+        </div>
+    </form>
+</body>
+</html>
